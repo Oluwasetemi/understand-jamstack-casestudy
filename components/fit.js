@@ -3,17 +3,17 @@ import Textfit from 'react-textfit'
 import styled from 'styled-components'
 
 const Container = styled.div([], props => ({
-  fontWeight: 'bold',
+  fontWeight: 100,
   width: '100vw',
   padding: '0 2.5vw',
   ...(props.background && {
-    background: props.background
+    background: props.background,
   }),
   ...(props.color && {
-    color: props.color
+    color: props.color,
   }),
   ...(props.caps && {
-    textTransform: 'uppercase'
+    textTransform: 'uppercase',
   })
 }))
 

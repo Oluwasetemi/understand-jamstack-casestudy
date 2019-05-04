@@ -10,10 +10,18 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
 
-  background-color: ${colors.gatsby};
+  background-color: ${colors.white};
 
   height: 100vh;
   width: 100vw;
+  p {
+    font-size: 50px;
+    heighgt: 70px;
+    color: red;
+    font-style: oblique;
+    font-weight: 100;
+    margin: 10px;
+  }
 `
 
 const ParticlesContainer = styled.div`

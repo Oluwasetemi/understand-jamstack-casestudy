@@ -1,0 +1,354 @@
+import {Head, Notes} from 'mdx-deck'
+import { TwitterTweetEmbed } from 'react-twitter-embed'
+import {Background, Title} from '../layouts'
+import {colors} from '../constants'
+import { Fit, Image, Link, TweetEmbed, Social } from '../components'
+
+
+export default Background({background: colors.gatsby, color: 'white'})
+
+# WTF is JAMstack?
+
+![JAMstack Definition](https://res.cloudinary.com/drnqdd87d/image/upload/v1556478023/jamstack_e8cwdn.png)
+
+🔗<Link href="https://snipcart.com/blog/jamstack">Read More About JAMstack</Link>
+🔗<Link href="https://jamstack.org">JAMstack Homepage</Link>
+
+---
+
+# Benefits?
+
+Understanding how to use <b><em>JAMstack</em></b> to create <b><em>powerful apps</em></b>
+that will change the future by <b><em> understanding the approach others have used
+via the case study.</em></b>
+
+---
+
+# Our Case Study
+
+👌 [Freecodecamp](https://www.freecodecamp.org/)⚡
+
+👌 [Gatsby Swag Store](https://store.gatsbyjs.org/)🔥
+
+---
+
+![Freecodecamp](https://res.cloudinary.com/drnqdd87d/image/upload/v1556450229/fcc_n1ru64.png)
+
+---
+
+# Freecodecamp👨‍🏫
+
+[Freecodecamp](https://www.freecodecamp.org/) is a non-profit organization that
+helps millions of people learn to code, and we're doing this using a
+single API server.
+
+The rest of the platform is handled by CDNs and other glorious services.
+
+---
+export default Background({ background: '#eb5424', color: 'white' })
+
+<Fit>Auth0</Fit>
+
+
+---
+
+![Freecodecamp Architecture](https://res.cloudinary.com/practicaldev/image/fetch/s--jfZ2uyDW--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_580/https://thepracticaldev.s3.amazonaws.com/i/b5xt0zbpinkqamc2gdqv.png)
+
+---
+
+Step #1: An open source contributor opens a pull request, changing one of
+freeCodeCamp.org's 6,000+ interactive coding challenges and reference articles -
+all of which are stored as easy-to-edit markdown files.
+
+---
+
+Step #2: Our continuous integration tool confirms that the build passes and Git
+confirms there aren't any merge conflicts.
+
+Step #3: An open source maintainer QA's and merges the pull request on GitHub.
+
+---
+
+Step #4: Gatsby - a static site builder - turns these 6,000+ markdown files into
+a single-page React app.
+
+Step #5: Netlify pushes the newly-built app to their CDN endpoints in data
+centers around the world.
+
+---
+
+Step #6: A person who wants to practice their coding visits
+https://www.freecodecamp.org.
+
+Step #7: Their browser pulls down the files from the nearest Netlify CDN
+endpoint and renders the Gatsby app.
+
+---
+
+Step #8: Auth0 checks to see whether they are logged into freeCodeCamp.org. If
+they are, it gives them read-write access to our public API - a Node.js /
+Loopback server.
+
+Step #9: The API server then reads and writes data from our MongoDB cluster
+hosted on mLab.
+
+---
+
+Step #10: The browser can now fetch the user's complete freeCodeCamp profile and
+progress. When they complete a coding challenge, their browser can write data
+back to their profile.
+
+NB:
+🔗[To read more about this step](https://dev.to/ossia/how-freecodecamporg-uses-the-jamstack--a-single-api-server-to-help-millions-of-people-learn-to-code-every-month-4d5g)
+or watch
+📺[Quincy Larson's talk during the first JAMstack conf](https://www.youtube.com/watch?v=e5H7CI3yqPY)
+
+---
+
+# Analysis
+
+Majority of the processes in the Freecodecamp Architecture could be
+handled in the browser.Rendering the markdown file from github is done by the React App. Critical requirements - They must be able
+to track who made the changes and what change was made.Test cases must run in browser.Keep
+each user's progress on the platform.
+
+---
+
+When a user completes a challenge, the API endpoint will be communicated to for
+read and write to save whatever the user has done and keep track on each
+challenges the user was able to complete in the curriculum.
+
+NB: they understood their <b>need</b>,**perculiarity** of their process and **requirements**
+
+---
+export default Background({ background: '#eb5424', color: 'white' })
+
+<Fit>Auth0</Fit>
+
+---
+export default Background({ background: colors.gatsby, color: 'white' })
+
+# Gatsby Swag Store🛒
+
+[Gatsby Swag Store](https://store.gatsbyjs.org/) is an automated system that
+would identify, manage, and ship swag to Gatsby Maintainers using SaaS like
+GitHub, Peril, GitHub App Dashboard, MailChimp, Shopify and Threadbird
+
+---
+
+# Consideration from the Team that worked on the Project
+
+---
+
+👌 They found out their limitations and Strength
+
+👌 Deciding on how to turn Limitation to Strength
+
+👌 Scalability was key
+
+---
+
+👌 Process must be repeatable with less human input
+
+👌 A Process framework was designed
+
+---
+
+<Image src="https://res.cloudinary.com/drnqdd87d/image/upload/v1556450257/Swag-Process_yld7c9.png" size='contain'>
+    <Fit style={{color:`${colors.gatsby}`, background:`${colors.white}`}}>Gatsby Store Process Framework</Fit>
+</Image>
+
+---
+
+# Let's take a deeper look at the Process Framework
+
+---
+
+<Fit>GitHub</Fit>
+
+To track when someone contributes to Gatsby. A contributor raises a PR and it is
+reviewed by the maintainer.
+
+---
+
+<Fit>Peril</Fit>
+
+Peril is a hosted instance of [Dangerjs](https://danger.systems/js/). So instead of running on CI, it will run
+on a server somewhere and can respond instantly to webhooks. This gives Danger
+the ability to respond instantly to PR changes, and to run on more than just
+PRs. It was deployed to check if the person assessing the store is a contributor
+or maintainer.
+
+---
+
+<Fit>GitHub App Dashboard</Fit>
+
+It is a service that allows you to build an App using existing Github data to
+give access to your own service. It was used by the swag store to add a coupon
+pulled from shopiify when a collaborator agrees to become a maintainer and share
+email address
+
+---
+
+<Fit>MailChimp</Fit>
+
+use the mailchimp API to send automated emails
+
+---
+
+<Fit>Shopify</Fit>
+
+Handles the discount code and product you decide to add to your cart
+
+---
+
+<Fit>Threadbird</Fit>
+
+Shopify directs to this service for customer support, it receives purchase info
+from shopify, fulfil and ship order.
+
+---
+
+# Why do I need to know all this?
+
+> I am not sure I have interest in all this Jarg😭n this guy is talking about.
+
+---
+
+# Wait for It?
+
+<Fit>They built an ecommerce website with all the <b>modern sweetness</b>. The Largest
+platform to learn coding uses this architecture</Fit>
+
+---
+
+<Fit>All built with</Fit>
+
+---
+
+![JAM](https://snipcart.com/media/204206/jamstack.png)
+
+---
+
+<TwitterTweetEmbed tweetId="1043226318978998272" options={{ conversation: 'none' }} />
+
+---
+
+As a developer in Nigeria 🇳🇬, I feel we should embrace JAMstack more. Enough of agencies using Server Side Rendering for site that don't need Big complexity
+
+---
+
+We have one way direction approach that every project must involve a server
+which comes with huge server cost and less sleep for the DevOps Team. If you
+know you.....
+
+Read through this article to understand
+[Rendering on the web](https://developers.google.com/web/updates/2019/02/rendering-on-the-web).
+
+---
+
+Let use more stuffs like Netlify Function and Serverless
+
+---
+
+👌 Server Rendering - MVC architecture.
+
+👌 Static SSR - Build the API and then use thing Fetch to prerender each page with data into static HTML.
+
+---
+
+👌 SSR with ReHydration - Nextjs, Nuxtjs.
+
+👌 CSR with prerendering - Vuepress, Gridsome and Gatsby.
+
+👌 Full CSR - Single Page Apps everything JS.
+
+---
+
+👌 If most of the operations you need to run can be handled by the Browser or
+    Service laced with Serverless and Lambda Functions.
+
+---
+
+👌 If you need a very performant website with a consistent template and you do
+    not want unnecessary plugins that you don't care about.
+
+---
+
+👌 JAMstack architecture is still evolving with the modernization of JavaScript
+    backed by the API as a service economy and Software as a service companies
+    like 🔗[Zeit](https://zeit.co/), 🔗[Twillo](https://www.twilio.com/),
+    🔗[Netlify](https://www.netlify.com), 🔗[snipcart](https://snipcart.com/), and
+    🔗[Gatsby](https://www.gatsbyjs.org/).
+
+---
+
+<b><em>I will end by asking how do you create a new project?</em></b>
+
+---
+
+How  do you start new project?
+
+---
+
+> New Project -> index.html
+
+---
+
+> Vanilla JS
+
+---
+
+> CLI and SSGs
+
+---
+
+# When you have a new project, why not JAMstack? and Make your CLIENT happy.
+
+---
+
+![Client Worries](https://snipcart.com/media/203996/jamstack-benefits-security-2.png?width=800&format=webp&quality=80&upscale=false)
+
+---
+
+![Startups](https://snipcart.com/media/203997/jamstack-benefits-speed.png?width=800&format=webp&quality=80&upscale=false)
+
+---
+
+<Fit>I am JS developer because of where it is not what it is.</Fit>
+
+<Fit>The future is <b>here</b>, it is not evenly distributed.</Fit>
+
+---
+
+Shout out to
+
+👌 [@amber1ey](https://twitter.com/amber1ey)
+
+👌 [@SchauDustin](https://twitter.com/SchauDustin)
+
+for the help with my slides
+
+---
+
+👌 [Organizers of JAMstackLagos](https://twitter.com/JAMstackLagos)
+
+👌 [Williams Imoh](https://twitter.com/ichuloo)
+
+👌 [Gift Egwuenu](https://twitter.com/lauragift21)
+
+---
+
+Everyone present here👨‍👩‍👦‍👦
+
+```notes
+Create speaker notes with the Notes component</Notes>
+```
+---
+Thanks to [Brent Jackson @jxnblk](https://github.com/jxnblk/mdx-deck)
+
+for creating [MDX-DECK](https://github.com/jxnblk/mdx-deck)
+
+---
+
+<Fit>Thanks for coming</Fit>

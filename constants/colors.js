@@ -1,4 +1,5 @@
 export default {
   accent: '#FFD34E',
-  gatsby: '#663399'
+  gatsby: '#663399',
+  white: '#FFFFFF'
 }
